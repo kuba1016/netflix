@@ -1,0 +1,10 @@
+"0","netflix_movie %>% "
+"0","  group_by(release_year) %>% "
+"0","  summarise(num_per_year = n()) %>% "
+"0","  arrange(desc(num_per_year)) %>% "
+"0","  ggplot()+"
+"0","  aes(release_year,num_per_year)+"
+"0","  geom_col(fill = ""red"") +"
+"0","  scale_y_continuous(breaks = seq(0,700,100))"
+"2","`summarise()` ungrouping output (override with `.groups` argument)
+"

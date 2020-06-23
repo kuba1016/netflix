@@ -1,0 +1,350 @@
+```{r}
+library(tidyverse)
+library(leaflet)
+library(janitor)
+library(htmltools)
+library(lubridate)
+
+```
+
+#Read the data in. 
+```{r}
+netflix_movie <- read_csv("../clean_data/netflix_movie.csv")
+netflix_tv <- read_csv("../clean_data/netflix_tv.csv")
+```
+
+```{r}
+str(netflix_movie)
+str(netflix_tv)
+```
+# Number of movies by country.
+```{r}
+netflix_movie %>% 
+  group_by(country) %>% 
+  summarise(num_of_movies = n()) %>% 
+  arrange(desc(num_of_movies))
+```
+#Plot
+```{r}
+netflix_movie %>% 
+  group_by(country) %>% 
+  summarise(num_of_movies = n()) %>% 
+  arrange(desc(num_of_movies)) %>% 
+  top_n(10) %>% 
+  filter(country !="Unknown") %>% 
+  ggplot() +
+  aes( reorder(country,num_of_movies),num_of_movies) +
+  geom_col(fill = "red")+
+  coord_flip() +
+  scale_y_continuous(breaks = seq(0,1800,100))
+
+```
+
+#Number of tv series by country,
+```{r}
+netflix_tv %>% 
+  group_by(country) %>% 
+  summarise(num_of_tvseries = n()) %>% 
+  arrange(desc(num_of_tvseries))
+```
+#Plot TV
+```{r}
+netflix_tv %>% 
+  group_by(country) %>% 
+  summarise(num_of_tvseries = n()) %>% 
+  arrange(desc(num_of_tvseries)) %>% 
+  top_n(10) %>% 
+  filter(country !="Unknown") %>% 
+  ggplot()+
+  aes(reorder(country, num_of_tvseries) ,num_of_tvseries)+
+  geom_col(fill = "red")+
+  coord_flip() +
+  scale_y_continuous(breaks = seq(0,600,100))
+
+```
+
+
+
+#Number of titles.
+```{r}
+head(netflix_movie)
+n_distinct(netflix_movie$title)
+```
+```{r}
+n_distinct(netflix_tv$title)
+```
+# Number of directors
+```{r}
+n_distinct(netflix_movie$director)-1 # -1 for the Unknown
+```
+#Number of countries
+```{r}
+n_distinct(netflix_movie$country)- 1 #-1 for the Unknown. Count includes International movies. 
+```
+```{r}
+n_distinct(netflix_tv$country)-1 #-1 for the Unknown. Count includes International movies.
+```
+# Number or ratings for tvs and movies.
+```{r}
+n_distinct(netflix_movie$rating)
+```
+```{r}
+n_distinct(netflix_tv$rating)
+
+```
+#Movie Tv-series duration breakdown
+```{r}
+netflix_movie %>% 
+  summarise(mean_time = mean(duratiom_min, na.rm = T),
+            median_time = median(duratiom_min,na.rm = T),
+            min_time = min(duratiom_min,na.rm = T),
+            max_time = max(duratiom_min, na.rm = T))
+```
+
+```{r}
+netflix_tv %>% 
+  summarise(mean_seasons = mean(number_of_seasons, na.rm = T),
+            median_seasons = median(number_of_seasons,na.rm = T),
+            min_seasons = min(number_of_seasons,na.rm = T),
+            max_seasons = max(number_of_seasons, na.rm = T))
+
+```
+#Most popular director in movies
+```{r}
+netflix_movie %>%
+  filter(director != "Unknown") %>% 
+  group_by(director) %>% 
+  summarise(total = n()) %>% 
+  arrange(desc(total)) %>% 
+  top_n(20) 
+
+```
+#Plot
+```{r}
+netflix_movie %>% 
+  group_by(director) %>% 
+  summarise(total = n()) %>% 
+  arrange(desc(total)) %>% 
+  top_n(10) %>% 
+  filter(director !="Unknown") %>% 
+  ggplot()+
+  aes(reorder(director,total),total)+
+  geom_col(fill = "red")+
+  coord_flip() +
+  scale_y_continuous(breaks = seq(0,20,2))
+
+```
+
+
+#Number of releases per year 
+```{r}
+netflix_tv %>% 
+  group_by(release_year) %>% 
+  summarise(num_per_year = n()) %>% 
+  arrange(desc(num_per_year))
+```
+#Plot TV
+```{r}
+netflix_tv %>% 
+  group_by(release_year) %>% 
+  summarise(num_per_year = n()) %>% 
+  arrange(desc(num_per_year)) %>% 
+  ggplot()+
+  aes(release_year,num_per_year)+
+  geom_col(fill = "red")+
+  scale_y_continuous(breaks = seq(0,500,50))
+
+```
+
+#Plot Movies
+```{r}
+netflix_movie %>% 
+  group_by(release_year) %>% 
+  summarise(num_per_year = n()) %>% 
+  arrange(desc(num_per_year)) %>% 
+  ggplot()+
+  aes(release_year,num_per_year)+
+  geom_col(fill = "red") +
+  scale_y_continuous(breaks = seq(0,700,100))
+
+```
+
+
+
+```{r}
+netflix_movie %>% 
+  group_by(release_year) %>% 
+  summarise(num_per_year = n()) %>% 
+  arrange(desc(num_per_year))
+```
+#Number of movies/shows added by year
+```{r}
+netflix_movie %>% 
+  group_by(year(date_added)) %>% 
+  summarise(num_per_year = n()) %>% 
+  arrange(desc(num_per_year))
+```
+#Plot movie
+```{r}
+netflix_movie %>% 
+  mutate(year_added=year(date_added)) %>% 
+  group_by(year_added) %>% 
+  summarise(num_per_year = n()) %>% 
+  arrange(desc(num_per_year)) %>% 
+  ggplot()+
+  aes(year_added,num_per_year)+
+  geom_col(fill = "red")+
+  scale_x_continuous(breaks = 2008:2020) +
+  scale_y_continuous(breaks = seq(0,1800,100))
+```
+
+
+# Unwanted NA CHeck it out 
+```{r}
+netflix_tv %>% 
+  filter(!is.na(year(date_added))) %>% 
+  group_by(year(date_added)) %>% 
+  summarise(num_per_year = n()) %>% 
+  arrange(desc(num_per_year))
+```
+#Plot Tv
+```{r}
+netflix_tv %>% 
+  mutate(year_added=year(date_added)) %>% 
+  group_by(year_added,country) %>% 
+  summarise(num_per_year = n()) %>% 
+  arrange(desc(num_per_year)) %>% 
+  ggplot()+
+  aes(year_added,num_per_year)+
+  geom_col(fill = "red") +
+  scale_x_continuous(breaks = 2008:2020)+
+  scale_y_continuous(breaks = seq(0,850,100))
+
+```
+
+#Number of movies by category
+```{r}
+netflix_movie %>% 
+  group_by(rating) %>% 
+  summarise(total_movies = n()) %>% 
+  arrange(desc(total_movies))
+```
+#Plot Movie
+```{r}
+netflix_movie %>% 
+  group_by(rating) %>% 
+  summarise(total_movies = n()) %>% 
+  arrange(desc(total_movies)) %>% 
+  ggplot()+
+  aes(reorder(rating,total_movies),total_movies)+
+  geom_col(fill = "red")+
+  coord_flip()+
+  scale_y_continuous(breaks = seq(0,1700,100))
+
+```
+
+```{r}
+netflix_tv %>% 
+  group_by(rating) %>% 
+  summarise(total_movies = n()) %>% 
+  arrange(desc(total_movies))
+```
+#Plot Tv
+```{r}
+netflix_tv %>% 
+  group_by(rating) %>% 
+  summarise(total_movies = n()) %>% 
+  arrange(desc(total_movies)) %>% 
+  ggplot()+
+  aes(reorder(rating,total_movies),total_movies)+
+  geom_col(fill = "red")+
+  coord_flip()+
+  scale_y_continuous(breaks = seq(0,700,by = 50))
+```
+# Map 
+
+
+```{r}
+country <- unique(netflix_tv$country)
+```
+
+
+
+Read in geodata
+```{r}
+c_coord <- read_csv("../raw_data/datasets_25827_32914_countries.csv")
+
+```
+
+
+Cleaning names
+```{r}
+c_coord <- c_coord %>% clean_names()
+```
+# geocodes not present for South Korea, Russia West Germany. 
+```{r}
+netflix_movie %>% 
+  filter(country != "International", country != "Unknown") %>% 
+  left_join(c_coord) %>% 
+  filter(is.na(latitude)) %>% distinct(country) 
+```
+
+# Fixing missing values
+```{r}
+c_coord <- c_coord %>% 
+  mutate(country = replace(country, country == "Russian Federation","Russia")) %>% 
+  mutate(country = replace(country, country == "Korea, Republic of","South Korea")) 
+
+```
+
+```{r}
+netflix_movie <- netflix_movie %>% 
+  mutate(country = replace(country, country =="West Germany", "Germany"))
+```
+# Deleting rowa with country == International and country == Unknown and joining with c-coord.
+```{r}
+netflix_movie_map <- netflix_movie %>%
+  filter(country != "International", country != "Unknown") %>% 
+  left_join(c_coord)
+```
+####Basic map 
+
+# Creating label 
+```{r}
+netflix_movies_num_country <- netflix_movie_map %>% 
+  group_by(country) %>% 
+  summarise(num_movies_country = n())
+```
+```{r}
+netflix_movie_map <- netflix_movie_map %>% 
+  left_join(netflix_movies_num_country)
+```
+
+
+
+```{r}
+netflix_movie_map$label <- paste("<p>","Country: ",netflix_movie_map$country,"</p>",
+                                 "<p>", "Number of movies: ", netflix_movie_map$num_movies_country,"</p>")
+```
+
+```{r}
+leaflet() %>% 
+  addProviderTiles(providers$Stamen.Toner) %>% 
+  setView(lat = 22.35335,lng = -16.43312,zoom = 2) %>% 
+  addCircleMarkers(
+    lng = netflix_movie_map$longitude,
+    lat = netflix_movie_map$latitude,
+    color = "red",
+    weight = 1,
+    radius = 5,
+    label = lapply(netflix_movie_map$label,HTML))
+```
+
+
+
+
+
+
+
+
+

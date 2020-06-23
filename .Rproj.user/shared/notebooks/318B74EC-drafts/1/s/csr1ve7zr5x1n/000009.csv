@@ -1,0 +1,2 @@
+"0","netflix_movie <-  netflix_movie %>% "
+"0","  mutate(country = str_replace(country, "","","""")) "

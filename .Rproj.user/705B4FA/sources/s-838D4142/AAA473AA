@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1592821175448.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "AAA473AA",
+    "lastKnownWriteTime" : 1592832818,
+    "last_content_update" : 1592832818982,
+    "path" : "~/Documents/projects/netflix/analysis/analysis.Rmd",
+    "project_path" : "analysis/analysis.Rmd",
+    "properties" : {
+        "chunk_output_type" : "inline",
+        "cursorPosition" : "340,3",
+        "docOutlineVisible" : "0",
+        "ignored_words" : "netflix,csv,tv,tvs,Tv\n",
+        "scrollLine" : "322",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

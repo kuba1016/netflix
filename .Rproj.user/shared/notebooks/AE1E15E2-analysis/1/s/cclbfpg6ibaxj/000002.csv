@@ -1,0 +1,15 @@
+"0","netflix_tv %>% "
+"0","  group_by(country) %>% "
+"0","  summarise(num_of_tvseries = n()) %>% "
+"0","  arrange(desc(num_of_tvseries)) %>% "
+"0","  top_n(10) %>% "
+"0","  filter(country !=""Unknown"") %>% "
+"0","  ggplot()+"
+"0","  aes(reorder(country, num_of_tvseries) ,num_of_tvseries)+"
+"0","  geom_col(fill = ""red"")+"
+"0","  coord_flip() +"
+"0","  scale_y_continuous(breaks = seq(0,600,100))"
+"2","`summarise()` ungrouping output (override with `.groups` argument)
+"
+"2","Selecting by num_of_tvseries
+"

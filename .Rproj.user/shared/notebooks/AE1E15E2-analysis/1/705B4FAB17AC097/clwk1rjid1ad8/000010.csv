@@ -1,0 +1,7 @@
+"0","country_movie <- netflix_movie %>%
+  filter(country %!in% c(""International"",""Unknown"")) %>% 
+
+  left_join(c_coord)
+"
+"2","Joining, by = ""country""
+"

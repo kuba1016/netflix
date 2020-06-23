@@ -1,0 +1,4 @@
+"0","netflix_movie <- netflix_movie %>% "
+"0","  mutate(date_added = parse_date_time(date_added, orders = c(""mdy""))) %>% "
+"0","  mutate(duratiom_min = as.numeric(duratiom_min))"
+"2"," 1 failed to parse."

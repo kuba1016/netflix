@@ -1,0 +1,4 @@
+"0","netflix_movie <- netflix %>% "
+"0","  select(-show_id) %>% "
+"0","  filter(type ==""Movie"") %>% "
+"0","  select(-type)"

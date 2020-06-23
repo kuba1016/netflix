@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1592770013626.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "E3D1FC7D",
+    "lastKnownWriteTime" : 1592758026,
+    "last_content_update" : 1592758026,
+    "path" : "~/Documents/projects/netflix/data_wrangling/drafts.Rmd",
+    "project_path" : "data_wrangling/drafts.Rmd",
+    "properties" : {
+        "chunk_output_type" : "inline",
+        "cursorPosition" : "190,0",
+        "ignored_words" : "netflix,csv,mdy\n",
+        "scrollLine" : "190",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

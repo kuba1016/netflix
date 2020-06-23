@@ -1,0 +1,10 @@
+"0","netflix_movie %>%"
+"0","  filter(director != ""Unknown"") %>% "
+"0","  group_by(director) %>% "
+"0","  summarise(total = n()) %>% "
+"0","  arrange(desc(total)) %>% "
+"0","  top_n(20) "
+"2","`summarise()` ungrouping output (override with `.groups` argument)
+"
+"2","Selecting by total
+"

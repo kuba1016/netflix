@@ -1,0 +1,17 @@
+"0","netflix <- read_csv(""../raw_data/netflix_titles.csv"")"
+"2","Parsed with column specification:
+cols(
+  show_id = [32mcol_double()[39m,
+  type = [31mcol_character()[39m,
+  title = [31mcol_character()[39m,
+  director = [31mcol_character()[39m,
+  cast = [31mcol_character()[39m,
+  country = [31mcol_character()[39m,
+  date_added = [31mcol_character()[39m,
+  release_year = [32mcol_double()[39m,
+  rating = [31mcol_character()[39m,
+  duration = [31mcol_character()[39m,
+  listed_in = [31mcol_character()[39m,
+  description = [31mcol_character()[39m
+)
+"

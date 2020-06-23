@@ -1,0 +1,5 @@
+"0","netflix_movies_num_country <- netflix_movie_map %>% "
+"0","  group_by(country) %>% "
+"0","  summarise(num_movies_country = n())"
+"2","`summarise()` ungrouping output (override with `.groups` argument)
+"

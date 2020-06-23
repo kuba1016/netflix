@@ -1,0 +1,4 @@
+"0","c_coord <- c_coord %>% "
+"0","  mutate(country = replace(country, country == ""Russian Federation"",""Russia"")) %>% "
+"0","  mutate(country = replace(country, country == ""Korea, Republic of"",""South Korea"")) "
+"0",""

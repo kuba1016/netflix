@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1592569002340.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "E37BCA25",
+    "lastKnownWriteTime" : 1592758004,
+    "last_content_update" : 1592758004676,
+    "path" : "~/Documents/projects/netflix/data_wrangling/script.R",
+    "project_path" : "data_wrangling/script.R",
+    "properties" : {
+        "cursorPosition" : "74,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

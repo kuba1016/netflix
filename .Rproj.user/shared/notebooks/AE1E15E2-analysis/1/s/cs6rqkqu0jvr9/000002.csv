@@ -1,0 +1,6 @@
+"0","netflix_tv %>% "
+"0","  group_by(rating) %>% "
+"0","  summarise(total_movies = n()) %>% "
+"0","  arrange(desc(total_movies))"
+"2","`summarise()` ungrouping output (override with `.groups` argument)
+"

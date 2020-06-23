@@ -1,0 +1,5 @@
+"0","netflix_movie %>% "
+"0","  summarise(mean_time = mean(duratiom_min, na.rm = T),"
+"0","            median_time = median(duratiom_min,na.rm = T),"
+"0","            min_time = min(duratiom_min,na.rm = T),"
+"0","            max_time = max(duratiom_min, na.rm = T))"

@@ -1,0 +1,2 @@
+"0","netflix_movie %>% "
+"0","  summarise_each(function(x) sum(is.na(x)))"

@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1592748473302.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "F21D48E9",
+    "lastKnownWriteTime" : 0,
+    "last_content_update" : 1592748473302,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "EFB9E4AB",
+        "caption" : "netflix",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=netflix&cache_key=EFB9E4AB",
+        "displayedObservations" : "6234",
+        "environment" : "",
+        "expression" : "netflix",
+        "object" : "netflix",
+        "preview" : "0",
+        "totalObservations" : "6234",
+        "variables" : "12"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

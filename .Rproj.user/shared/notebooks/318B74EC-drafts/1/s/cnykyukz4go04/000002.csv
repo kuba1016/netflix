@@ -1,0 +1,3 @@
+"0","netflix_movie <-  netflix_movie %>% "
+"0","  mutate(country = ifelse(sapply(strsplit(country,"",""),length)>1, ""International"",country))"
+"0",""

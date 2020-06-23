@@ -1,0 +1,192 @@
+```{r}
+library(tidyverse)
+library(lubridate)
+```
+Read in the data.
+```{r}
+netflix <- read_csv("../raw_data/netflix_titles.csv")
+```
+Initial exploration.
+```{r}
+head(netflix)
+tail(netflix)
+```
+
+```{r}
+str(netflix)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+####Important#####
+```{r}
+netflix_movie <- netflix %>% 
+  select(-show_id) %>% 
+  filter(type =="Movie") %>% 
+  select(-type)
+```
+
+```{r}
+netflix_tv <- netflix %>% 
+  select(-show_id) %>% 
+  filter(type =="TV Show") %>% 
+  select(-type)
+```
+
+
+########CHECKING FOR NA####
+```{r}
+netflix_tv %>% 
+  summarise_each(function(x) sum(is.na(x)))
+```
+
+```{r}
+netflix_movie %>% 
+  summarise_each(function(x) sum(is.na(x)))
+```
+
+```{r}
+netflix_movie %>% 
+  summarise_each(~sum(is.na(.)))
+```
+
+#########REPLACING NA WITH UNKNOWN
+```{r}
+netflix_tv <-  netflix_tv %>% 
+  replace(is.na(.), "Unknown")
+```
+
+```{r}
+netflix_movie <-  netflix_movie %>% 
+  replace(is.na(.),"Unknown")
+```
+
+
+
+#########FIXING THE SEASON COLUMN 
+```{r}
+netflix_tv <- netflix_tv %>% 
+  rename(number_of_seasons = duration) %>% 
+  mutate(number_of_seasons = str_extract(number_of_seasons, "[0-9]*")) %>% 
+  mutate(number_of_seasons = as.numeric(number_of_seasons))
+
+```
+
+
+```{r}
+netflix_movie <-  netflix_movie %>% 
+  mutate(duration = str_extract(duration, "[0-9]*")) %>% 
+  rename(duratiom_min = duration)
+```
+
+#######Fight with country column FINALLY MADE IT 
+```{r}
+
+#sapply(strsplit(netflix_tv$country, ","), length)
+#map(netflix_tv$country, ~length(str_split(.,",")))
+netflix_tv <- netflix_tv %>% 
+  mutate(country = if_else(sapply(strsplit(country, ","), length)> 1,"International", country))
+
+```
+
+```{r}
+netflix_movie <-  netflix_movie %>% 
+  mutate(country = ifelse(sapply(strsplit(country,","),length)>1, "International",country))
+
+```
+
+```{r}
+netflix_movie %>% 
+  mutate(country = str_replace(country,","," ")) 
+```
+
+
+
+```{r}
+netflix_movie %>% distinct(country)
+```
+
+#changing the columns type
+```{r}
+netflix_tv %>% 
+  glimpse()
+```
+```{r}
+netflix_tv <- netflix_tv %>% 
+  mutate(date_added = parse_date_time(date_added,orders = c("mdy"))) 
+```
+```{r}
+netflix_tv %>% 
+  glimpse()
+```
+```{r}
+netflix_movie %>% 
+  glimpse()
+```
+
+```{r}
+netflix_movie <- netflix_movie %>% 
+  mutate(date_added = parse_date_time(date_added, orders = c("mdy"))) %>% 
+  mutate(duratiom_min = as.numeric(duratiom_min))
+```
+```{r}
+netflix_movie %>% 
+  glimpse
+```
+
+Time series
+```{r}
+library(feasts)
+library(tsibble)
+library(ggfortify)
+netflix_movie %>% head
+```
+```{r}
+ts_tv <- netflix_movie %>%
+  group_by(date_added) %>% 
+  summarise(total = n()) %>% 
+  mutate(date_added = yearmonth(date_added)) %>% 
+  tidyr::complete(total = 0) %>% 
+  drop_na() %>% 
+  group_by(date_added) %>% 
+  summarise(total =n()) %>% 
+  duplicates(total) %>% 
+  as_tsibble(index = date_added)
+  
+  
+  
+```
+
+```{r}
+ts_tv %>% 
+  autoplot(total)
+```
+```{r}
+netflix_movie <-  netflix_movie %>% 
+  mutate(country = str_replace(country, ",","")) 
+```
+```{r}
+unique(netflix_movie$country)
+```
+
+

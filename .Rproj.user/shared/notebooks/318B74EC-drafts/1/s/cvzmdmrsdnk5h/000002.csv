@@ -1,0 +1,23 @@
+"0","netflix_tv %>% "
+"0","  glimpse()"
+"1","Rows: 1,969"
+"1",""
+"1","
+"
+"1","Columns: 10"
+"1",""
+"1","
+"
+"1","$ title             [3m[38;5;246m<chr>[39m[23m ""Transformers Prime"", ""Transformers: Robots in Disguise"", ""Apaches"", ""Fire Chasers"", ""Cas…
+$ director          [3m[38;5;246m<chr>[39m[23m ""Unknown"", ""Unknown"", ""Unknown"", ""Unknown"", ""Unknown"", ""Unknown"", ""Unknown"", ""Unknown"", ""…
+$ cast              [3m[38;5;246m<chr>[39m[23m ""Peter Cullen, Sumalee Montano, Frank Welker, Jeffrey Combs, Kevin Michael Richardson, Ta…
+$ country           [3m[38;5;246m<chr>[39m[23m ""United States"", ""United States"", ""Spain"", ""United States"", ""Unknown"", ""Unknown"", ""Unknow…
+$ date_added        [3m[38;5;246m<chr>[39m[23m ""September 8, 2018"", ""September 8, 2018"", ""September 8, 2017"", ""September 8, 2017"", ""Sept…
+$ release_year      [3m[38;5;246m<dbl>[39m[23m 2013, 2016, 2016, 2017, 2015, 2018, 2019, 2019, 2016, 2016, 2018, 2016, 2018, 2016, 2017,…
+$ rating            [3m[38;5;246m<chr>[39m[23m ""TV-Y7-FV"", ""TV-Y7"", ""TV-MA"", ""TV-MA"", ""TV-14"", ""TV-MA"", ""TV-Y7"", ""TV-MA"", ""TV-14"", ""TV-1…
+$ number_of_seasons [3m[38;5;246m<dbl>[39m[23m NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ listed_in         [3m[38;5;246m<chr>[39m[23m ""Kids' TV"", ""Kids' TV"", ""Crime TV Shows, International TV Shows, Spanish-Language TV Show…
+$ description       [3m[38;5;246m<chr>[39m[23m ""With the help of three human allies, the Autobots once again protect Earth from the onsl…"
+"1",""
+"1","
+"

@@ -1,0 +1,30 @@
+"0","netflix_movie <- read_csv(""../clean_data/netflix_movie.csv"")"
+"2","Parsed with column specification:
+cols(
+  title = [31mcol_character()[39m,
+  director = [31mcol_character()[39m,
+  cast = [31mcol_character()[39m,
+  country = [31mcol_character()[39m,
+  date_added = [34mcol_datetime(format = """")[39m,
+  release_year = [32mcol_double()[39m,
+  rating = [31mcol_character()[39m,
+  duratiom_min = [32mcol_double()[39m,
+  listed_in = [31mcol_character()[39m,
+  description = [31mcol_character()[39m
+)
+"
+"0","netflix_tv <- read_csv(""../clean_data/netflix_tv.csv"")"
+"2","Parsed with column specification:
+cols(
+  title = [31mcol_character()[39m,
+  director = [31mcol_character()[39m,
+  cast = [31mcol_character()[39m,
+  country = [31mcol_character()[39m,
+  date_added = [34mcol_datetime(format = """")[39m,
+  release_year = [32mcol_double()[39m,
+  rating = [31mcol_character()[39m,
+  number_of_seasons = [32mcol_double()[39m,
+  listed_in = [31mcol_character()[39m,
+  description = [31mcol_character()[39m
+)
+"

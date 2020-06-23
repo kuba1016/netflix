@@ -1,0 +1,6 @@
+"0",""
+"0","#sapply(strsplit(netflix_tv$country, "",""), length)"
+"0","#map(netflix_tv$country, ~length(str_split(.,"","")))"
+"0","netflix_tv <- netflix_tv %>% "
+"0","  mutate(country = if_else(sapply(strsplit(country, "",""), length)> 1,""International"", country))"
+"0",""

@@ -1,0 +1,5 @@
+"0","netflix_tv <- netflix_tv %>% "
+"0","  rename(number_of_seasons = duration) %>% "
+"0","  mutate(number_of_seasons = str_extract(number_of_seasons, ""[0-9]*"")) %>% "
+"0","  mutate(number_of_seasons = as.numeric(number_of_seasons))"
+"0",""

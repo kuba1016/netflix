@@ -1,0 +1,2 @@
+"0","country_movie$lable <- paste(""<p>"",""Country: "",country_map$country,""</p>"","
+"0","                             ""<p>"",""Number of movies: "",country_map$num_movies,""</p>"")"

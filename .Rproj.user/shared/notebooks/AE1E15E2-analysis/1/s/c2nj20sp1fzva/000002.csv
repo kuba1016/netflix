@@ -1,0 +1,8 @@
+"0","c_coord <- read_csv(""../raw_data/datasets_25827_32914_countries.csv"")"
+"2","Parsed with column specification:
+cols(
+  Country = [31mcol_character()[39m,
+  Latitude = [32mcol_double()[39m,
+  Longitude = [32mcol_double()[39m
+)
+"

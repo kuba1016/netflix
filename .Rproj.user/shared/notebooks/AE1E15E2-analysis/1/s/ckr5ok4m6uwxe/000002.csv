@@ -1,0 +1,6 @@
+"0","netflix_movie %>% "
+"0","  filter(country != ""International"", country != ""Unknown"") %>% "
+"0","  left_join(c_coord) %>% "
+"0","  filter(is.na(latitude)) %>% distinct(country) "
+"2","Joining, by = ""country""
+"

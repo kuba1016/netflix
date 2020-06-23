@@ -1,0 +1,5 @@
+"0","'%!in%' <- function(x,y)!('%in%'(x,y))"
+"0",""
+"0","country_movie %>% select(country,latitude,longitude) %>% "
+"0","  filter(is.na(latitude), country %!in% c(""International"",""Unknown"")) %>% "
+"0","  distinct()"

@@ -1,0 +1,19 @@
+"0","ts_tv <- netflix_movie %>%"
+"0","  group_by(date_added) %>% "
+"0","  summarise(total = n()) %>% "
+"0","  mutate(date_added = yearmonth(date_added)) %>% "
+"0","  tidyr::complete(total = 0) %>% "
+"0","  drop_na() %>% "
+"0","  group_by(date_added) %>% "
+"0","  summarise(total =n()) %>% "
+"0","  duplicates(total) %>% "
+"0","  as_tsibble(index = date_added)"
+"2","`summarise()` ungrouping output (override with `.groups` argument)
+"
+"2","`summarise()` ungrouping output (override with `.groups` argument)
+"
+"2","Using `date_added` as index variable.
+"
+"0","  "
+"0","  "
+"0","  "

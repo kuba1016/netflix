@@ -1,0 +1,3 @@
+"0","netflix_movie <-  netflix_movie %>% "
+"0","  mutate(duration = str_extract(duration, ""[0-9]*"")) %>% "
+"0","  rename(duratiom_min = duration)"

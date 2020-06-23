@@ -1,0 +1,5 @@
+"0","netflix_tv %>% "
+"0","  summarise(mean_seasons = mean(number_of_seasons, na.rm = T),"
+"0","            median_seasons = median(number_of_seasons,na.rm = T),"
+"0","            min_seasons = min(number_of_seasons,na.rm = T),"
+"0","            max_seasons = max(number_of_seasons, na.rm = T))"

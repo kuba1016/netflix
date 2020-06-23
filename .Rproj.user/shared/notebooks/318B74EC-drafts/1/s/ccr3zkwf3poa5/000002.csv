@@ -1,0 +1,23 @@
+"0","netflix_movie %>% "
+"0","  glimpse()"
+"1","Rows: 4,265"
+"1",""
+"1","
+"
+"1","Columns: 10"
+"1",""
+"1","
+"
+"1","$ title        [3m[38;5;246m<chr>[39m[23m ""Norm of the North: King Sized Adventure"", ""Jandino: Whatever it Takes"", ""#realityhigh"", ""Auto…
+$ director     [3m[38;5;246m<chr>[39m[23m ""Richard Finn, Tim Maltby"", ""Unknown"", ""Fernando Lebrija"", ""Gabe Ibáñez"", ""Rodrigo Toro, Franc…
+$ cast         [3m[38;5;246m<chr>[39m[23m ""Alan Marriott, Andrew Toth, Brian Dobson, Cole Howard, Jennifer Cameron, Jonathan Holmes, Lee…
+$ country      [3m[38;5;246m<chr>[39m[23m ""International"", ""United Kingdom"", ""United States"", ""International"", ""Chile"", ""International"",…
+$ date_added   [3m[38;5;246m<chr>[39m[23m ""September 9, 2019"", ""September 9, 2016"", ""September 8, 2017"", ""September 8, 2017"", ""September…
+$ release_year [3m[38;5;246m<dbl>[39m[23m 2019, 2016, 2017, 2014, 2017, 2014, 2017, 2015, 2009, 2013, 2016, 2012, 2017, 2010, 2013, 2015…
+$ rating       [3m[38;5;246m<chr>[39m[23m ""TV-PG"", ""TV-MA"", ""TV-14"", ""R"", ""TV-MA"", ""R"", ""TV-MA"", ""R"", ""TV-Y7"", ""TV-Y7"", ""TV-Y"", ""TV-Y7"",…
+$ duratiom_min [3m[38;5;246m<chr>[39m[23m ""90"", ""94"", ""99"", ""11"", ""60"", ""90"", ""78"", ""95"", ""58"", ""62"", ""65"", ""61"", ""65"", ""58"", ""60"", ""13""…
+$ listed_in    [3m[38;5;246m<chr>[39m[23m ""Children & Family Movies, Comedies"", ""Stand-Up Comedy"", ""Comedies"", ""International Movies, Sc…
+$ description  [3m[38;5;246m<chr>[39m[23m ""Before planning an awesome wedding for his grandfather, a polar bear king must take back a st…"
+"1",""
+"1","
+"

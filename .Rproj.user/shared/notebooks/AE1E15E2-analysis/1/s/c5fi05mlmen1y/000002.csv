@@ -1,0 +1,6 @@
+"0","netflix_tv %>% "
+"0","  group_by(country) %>% "
+"0","  summarise(num_of_tvseries = n()) %>% "
+"0","  arrange(desc(num_of_tvseries))"
+"2","`summarise()` ungrouping output (override with `.groups` argument)
+"
